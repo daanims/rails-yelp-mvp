@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   get "/restaurants/:id", to: "restaurants#show", as: :restaurant
 
   # add a new review to a restaurant
-  get "/restaurants/:id/reviews/new", to: "reviews#new"
-  post "/restaurants/:id/reviews", to: "reviews#create"
+  get "/restaurants/:restaurant_id/reviews/new", to: "reviews#new", as: :new_restaurant_review
+  post "/restaurants/:restaurant_id/reviews", to: "reviews#create"
+
+  resources :restaurants do
+    resources :reviews
+  end
 
 end

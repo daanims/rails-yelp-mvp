@@ -1,0 +1,8 @@
+<h1>How did you like <%= @restaurant.name %>?</h1>
+<p>Leave them a review!</p>
+
+<%= simple_form_for([@restaurant, @review]) do |f| %>
+<%= f.input :content %>
+<%= f.input :rating %>
+<%= f.submit %>
+<% end %>
